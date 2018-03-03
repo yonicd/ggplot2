@@ -67,7 +67,12 @@ the x axis, and the results are drawn (by default) with a line.
 }
 \section{Aesthetics}{
 
-\aesthetics{stat}{function}
+\code{stat_function} understands the following aesthetics (required aesthetics are in bold):
+\itemize{
+\item \code{group}
+\item \code{y}
+}
+Learn more about setting these aesthetics in \code{vignette("ggplot2-specs")}
 }
 
 \section{Computed variables}{

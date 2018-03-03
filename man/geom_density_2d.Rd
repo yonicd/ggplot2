@@ -9,7 +9,7 @@
 \usage{
 geom_density_2d(mapping = NULL, data = NULL, stat = "density2d",
   position = "identity", ..., lineend = "butt", linejoin = "round",
-  linemitre = 1, na.rm = FALSE, show.legend = NA, inherit.aes = TRUE)
+  linemitre = 10, na.rm = FALSE, show.legend = NA, inherit.aes = TRUE)
 
 stat_density_2d(mapping = NULL, data = NULL, geom = "density_2d",
   position = "identity", ..., contour = TRUE, n = 100, h = NULL,
@@ -81,7 +81,17 @@ overplotting. This is a 2d version of \code{\link[=geom_density]{geom_density()}
 }
 \section{Aesthetics}{
 
-\aesthetics{geom}{density_2d}
+\code{geom_density_2d} understands the following aesthetics (required aesthetics are in bold):
+\itemize{
+\item \strong{\code{x}}
+\item \strong{\code{y}}
+\item \code{alpha}
+\item \code{colour}
+\item \code{group}
+\item \code{linetype}
+\item \code{size}
+}
+Learn more about setting these aesthetics in \code{vignette("ggplot2-specs")}
 }
 
 \section{Computed variables}{
@@ -96,7 +106,7 @@ m <- ggplot(faithful, aes(x = eruptions, y = waiting)) +
  ylim(40, 110)
 m + geom_density_2d()
 \donttest{
-m + stat_density_2d(aes(fill = ..level..), geom = "polygon")
+m + stat_density_2d(aes(fill = calc(level)), geom = "polygon")
 
 set.seed(4393)
 dsmall <- diamonds[sample(nrow(diamonds), 1000), ]
@@ -106,9 +116,9 @@ d <- ggplot(dsmall, aes(x, y))
 d + geom_density_2d(aes(colour = cut))
 
 # If we turn contouring off, we can use use geoms like tiles:
-d + stat_density_2d(geom = "raster", aes(fill = ..density..), contour = FALSE)
+d + stat_density_2d(geom = "raster", aes(fill = calc(density)), contour = FALSE)
 # Or points:
-d + stat_density_2d(geom = "point", aes(size = ..density..), n = 20, contour = FALSE)
+d + stat_density_2d(geom = "point", aes(size = calc(density)), n = 20, contour = FALSE)
 }
 }
 \seealso{

@@ -73,7 +73,19 @@ see the individual pattern as you move up the stack. See
 }
 \section{Aesthetics}{
 
-\aesthetics{geom}{ribbon}
+\code{geom_ribbon} understands the following aesthetics (required aesthetics are in bold):
+\itemize{
+\item \strong{\code{x}}
+\item \strong{\code{ymin}}
+\item \strong{\code{ymax}}
+\item \code{alpha}
+\item \code{colour}
+\item \code{fill}
+\item \code{group}
+\item \code{linetype}
+\item \code{size}
+}
+Learn more about setting these aesthetics in \code{vignette("ggplot2-specs")}
 }
 
 \examples{

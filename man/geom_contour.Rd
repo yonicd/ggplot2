@@ -7,7 +7,7 @@
 \usage{
 geom_contour(mapping = NULL, data = NULL, stat = "contour",
   position = "identity", ..., lineend = "butt", linejoin = "round",
-  linemitre = 1, na.rm = FALSE, show.legend = NA, inherit.aes = TRUE)
+  linemitre = 10, na.rm = FALSE, show.legend = NA, inherit.aes = TRUE)
 
 stat_contour(mapping = NULL, data = NULL, geom = "contour",
   position = "identity", ..., na.rm = FALSE, show.legend = NA,
@@ -77,7 +77,18 @@ to a grid before visualising.
 }
 \section{Aesthetics}{
 
-\aesthetics{geom}{contour}
+\code{geom_contour} understands the following aesthetics (required aesthetics are in bold):
+\itemize{
+\item \strong{\code{x}}
+\item \strong{\code{y}}
+\item \code{alpha}
+\item \code{colour}
+\item \code{group}
+\item \code{linetype}
+\item \code{size}
+\item \code{weight}
+}
+Learn more about setting these aesthetics in \code{vignette("ggplot2-specs")}
 }
 
 \section{Computed variables}{
@@ -107,7 +118,7 @@ v + geom_contour(binwidth = 0.01)
 v + geom_contour(binwidth = 0.001)
 
 # Other parameters
-v + geom_contour(aes(colour = ..level..))
+v + geom_contour(aes(colour = calc(level)))
 v + geom_contour(colour = "red")
 v + geom_raster(aes(fill = density)) +
   geom_contour(colour = "white")

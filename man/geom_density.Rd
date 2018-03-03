@@ -88,7 +88,19 @@ data that comes from an underlying smooth distribution.
 }
 \section{Aesthetics}{
 
-\aesthetics{geom}{density}
+\code{geom_density} understands the following aesthetics (required aesthetics are in bold):
+\itemize{
+\item \strong{\code{x}}
+\item \strong{\code{y}}
+\item \code{alpha}
+\item \code{colour}
+\item \code{fill}
+\item \code{group}
+\item \code{linetype}
+\item \code{size}
+\item \code{weight}
+}
+Learn more about setting these aesthetics in \code{vignette("ggplot2-specs")}
 }
 
 \section{Computed variables}{
@@ -126,11 +138,11 @@ ggplot(diamonds, aes(depth, fill = cut, colour = cut)) +
 ggplot(diamonds, aes(carat, fill = cut)) +
   geom_density(position = "stack")
 # Preserves marginal densities
-ggplot(diamonds, aes(carat, ..count.., fill = cut)) +
+ggplot(diamonds, aes(carat, calc(count), fill = cut)) +
   geom_density(position = "stack")
 
 # You can use position="fill" to produce a conditional density estimate
-ggplot(diamonds, aes(carat, ..count.., fill = cut)) +
+ggplot(diamonds, aes(carat, calc(count), fill = cut)) +
   geom_density(position = "fill")
 }
 }

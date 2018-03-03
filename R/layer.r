@@ -85,7 +85,15 @@ layer <- function(geom = NULL, stat = NULL,
 
   data <- fortify(data)
   if (!is.null(mapping) && !inherits(mapping, "uneval")) {
-    stop("Mapping must be created by `aes()` or `aes_()`", call. = FALSE)
+    msg <- paste0("`mapping` must be created by `aes()`")
+    if (inherits(mapping, "ggplot")) {
+      msg <- paste0(
+        msg, "\n",
+        "Did you use %>% instead of +?"
+      )
+    }
+
+    stop(msg, call. = FALSE)
   }
 
   if (is.character(geom))
@@ -260,7 +268,10 @@ Layer <- ggproto("Layer", NULL,
     if (length(new) == 0) return(data)
 
     # Add map stat output to aesthetics
-    stat_data <- plyr::quickdf(lapply(new, eval, data, baseenv()))
+    env <- new.env(parent = baseenv())
+    env$calc <- calc
+
+    stat_data <- plyr::quickdf(lapply(new, eval, data, env))
     names(stat_data) <- names(new)
 
     # Add any new scales, if needed
@@ -325,8 +336,8 @@ find_subclass <- function(super, class, env) {
   name <- paste0(super, camelize(class, first = TRUE))
   obj <- find_global(name, env = env)
 
-  if (is.null(name)) {
-    stop("No ", tolower(super), " called ", name, ".", call. = FALSE)
+  if (is.null(obj)) {
+    stop("No ", tolower(super), " called '", class, "'.", call. = FALSE)
   } else if (!inherits(obj, super)) {
     stop("Found object is not a ", tolower(super), ".", call. = FALSE)
   }

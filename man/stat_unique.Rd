@@ -57,7 +57,11 @@ Remove duplicates
 }
 \section{Aesthetics}{
 
-\aesthetics{stat}{unique}
+\code{stat_unique} understands the following aesthetics (required aesthetics are in bold):
+\itemize{
+\item \code{group}
+}
+Learn more about setting these aesthetics in \code{vignette("ggplot2-specs")}
 }
 
 \examples{

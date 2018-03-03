@@ -7,6 +7,9 @@
 #' polygons are more suitable when you want to compare the distribution
 #' across the levels of a categorical variable.
 #'
+#' `stat_bin` is suitable only for continuous x data. If your x data is
+#' discrete, you probably want to use [stat_count()].
+#'
 #' By default, the underlying computation (`stat_bin`) uses 30 bins -
 #' this is not a good default, but the idea is to get you experimenting with
 #' different binwidths. You may need to look at a few to uncover the full
@@ -38,7 +41,7 @@
 #'
 #' # To make it easier to compare distributions with very different counts,
 #' # put density on the y axis instead of the default count
-#' ggplot(diamonds, aes(price, ..density.., colour = cut)) +
+#' ggplot(diamonds, aes(price, calc(density), colour = cut)) +
 #'   geom_freqpoly(binwidth = 500)
 #'
 #' if (require("ggplot2movies")) {

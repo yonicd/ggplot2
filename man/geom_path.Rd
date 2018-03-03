@@ -8,7 +8,7 @@
 \usage{
 geom_path(mapping = NULL, data = NULL, stat = "identity",
   position = "identity", ..., lineend = "butt", linejoin = "round",
-  linemitre = 1, arrow = NULL, na.rm = FALSE, show.legend = NA,
+  linemitre = 10, arrow = NULL, na.rm = FALSE, show.legend = NA,
   inherit.aes = TRUE)
 
 geom_line(mapping = NULL, data = NULL, stat = "identity",
@@ -88,7 +88,17 @@ corresponds to a single case which provides the start and end coordinates.
 }
 \section{Aesthetics}{
 
-\aesthetics{geom}{path}
+\code{geom_path} understands the following aesthetics (required aesthetics are in bold):
+\itemize{
+\item \strong{\code{x}}
+\item \strong{\code{y}}
+\item \code{alpha}
+\item \code{colour}
+\item \code{group}
+\item \code{linetype}
+\item \code{size}
+}
+Learn more about setting these aesthetics in \code{vignette("ggplot2-specs")}
 }
 
 \examples{
@@ -98,7 +108,7 @@ ggplot(economics_long, aes(date, value01, colour = variable)) +
   geom_line()
 
 # geom_step() is useful when you want to highlight exactly when
-# the y value chanes
+# the y value changes
 recent <- economics[economics$date > as.Date("2013-01-01"), ]
 ggplot(recent, aes(date, unemploy)) + geom_line()
 ggplot(recent, aes(date, unemploy)) + geom_step()

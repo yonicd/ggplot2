@@ -7,7 +7,7 @@
 \usage{
 geom_quantile(mapping = NULL, data = NULL, stat = "quantile",
   position = "identity", ..., lineend = "butt", linejoin = "round",
-  linemitre = 1, na.rm = FALSE, show.legend = NA, inherit.aes = TRUE)
+  linemitre = 10, na.rm = FALSE, show.legend = NA, inherit.aes = TRUE)
 
 stat_quantile(mapping = NULL, data = NULL, geom = "quantile",
   position = "identity", ..., quantiles = c(0.25, 0.5, 0.75),
@@ -81,7 +81,18 @@ with lines. This is as a continuous analogue to \code{\link[=geom_boxplot]{geom_
 }
 \section{Aesthetics}{
 
-\aesthetics{geom}{quantile}
+\code{geom_quantile} understands the following aesthetics (required aesthetics are in bold):
+\itemize{
+\item \strong{\code{x}}
+\item \strong{\code{y}}
+\item \code{alpha}
+\item \code{colour}
+\item \code{group}
+\item \code{linetype}
+\item \code{size}
+\item \code{weight}
+}
+Learn more about setting these aesthetics in \code{vignette("ggplot2-specs")}
 }
 
 \section{Computed variables}{

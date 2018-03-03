@@ -88,13 +88,19 @@ the default plot specification, e.g. \code{\link[=borders]{borders()}}.}
 }
 \description{
 \code{stat_summary} operates on unique \code{x}; \code{stat_summary_bin}
-operators on binned \code{x}. They are more flexible versions of
+operates on binned \code{x}. They are more flexible versions of
 \code{\link[=stat_bin]{stat_bin()}}: instead of just counting, they can compute any
 aggregate.
 }
 \section{Aesthetics}{
 
-\aesthetics{stat}{summary}
+\code{stat_summary} understands the following aesthetics (required aesthetics are in bold):
+\itemize{
+\item \strong{\code{x}}
+\item \strong{\code{y}}
+\item \code{group}
+}
+Learn more about setting these aesthetics in \code{vignette("ggplot2-specs")}
 }
 
 \section{Summary functions}{

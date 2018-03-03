@@ -87,9 +87,24 @@ points at specified quartiles of the theoretical and sample distributions.
 }
 \section{Aesthetics}{
 
-\aesthetics{stat}{qq}
+\code{stat_qq} understands the following aesthetics (required aesthetics are in bold):
+\itemize{
+\item \strong{\code{sample}}
+\item \code{group}
+\item \code{x}
+\item \code{y}
+}
+Learn more about setting these aesthetics in \code{vignette("ggplot2-specs")}
 
-\aesthetics{stat}{qq_line}
+
+\code{stat_qq_line} understands the following aesthetics (required aesthetics are in bold):
+\itemize{
+\item \strong{\code{sample}}
+\item \code{group}
+\item \code{x}
+\item \code{y}
+}
+Learn more about setting these aesthetics in \code{vignette("ggplot2-specs")}
 }
 
 \section{Computed variables}{

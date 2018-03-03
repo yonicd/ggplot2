@@ -96,7 +96,23 @@ To add labels at specified points use \code{\link[=annotate]{annotate()}} with
 }
 \section{Aesthetics}{
 
-\aesthetics{geom}{text}
+\code{geom_text} understands the following aesthetics (required aesthetics are in bold):
+\itemize{
+\item \strong{\code{x}}
+\item \strong{\code{y}}
+\item \strong{\code{label}}
+\item \code{alpha}
+\item \code{angle}
+\item \code{colour}
+\item \code{family}
+\item \code{fontface}
+\item \code{group}
+\item \code{hjust}
+\item \code{lineheight}
+\item \code{size}
+\item \code{vjust}
+}
+Learn more about setting these aesthetics in \code{vignette("ggplot2-specs")}
 }
 
 \section{\code{geom_label}}{
